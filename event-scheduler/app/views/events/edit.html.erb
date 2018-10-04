@@ -2,16 +2,6 @@
   <% if flash.has?(:message) %>
     <%= flash[:message] %>
     <% end %>
-  <input id=hidden type="hidden" name="_method" value="patch">
-
-  <h3>Event Name: <input type="text" name="name" value="<%=@event.name%>"></h3>
-  <p>Location: <input type="text" name="location" value="<%=@event.location%>"></p>
-  <p>Date and Time: <input type="date" name="date" value="<%=@event.date%>">, <input type="time" name="time" value="<%=@event.formatted_time%>"></p>
-  <p>Description <em>(Optional)</em><input type="text" name="description" value="<%=@event.description%>"><%=@event.description%></p><%#binding.pry%>
-  <%Category.all.each do |category|%>
-      <input type="radio" name="category" id="<%=category.name%>" value="<%=category.id%>"<%="checked" if @event.category.name == category.name %>><%=category.name%></input><%end%>
-      <p>Or create a new category: <input type="text" name="new_category" value=""></p>
-
-
-  <input type="submit" name="" value="Edit Event">
-</form>
+<%= form_tag event_path(@event), method: "put" do %>
+<%= render "form" %>
+<%end%>
