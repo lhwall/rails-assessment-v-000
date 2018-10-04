@@ -12,6 +12,9 @@ use Rack::Flash
   end
 
   def create
+    @event = Event.new(event_params(:name, :location, :date, :time, :description))
+    @event.save
+    redirect_to event_path(@event)
   end
 
   def show
@@ -23,6 +26,14 @@ use Rack::Flash
   end
 
   def update
+    @event = Event.find(params[:id])
+    @event.update(event_params(:name, :location, :date, :time, :description))
+    redirect_to event_path(@event)
   end
+
+private
+def event_params(*args)
+  params.require(:event).permit(*args)
+end
 
 end
