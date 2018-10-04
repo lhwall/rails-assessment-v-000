@@ -1,6 +1,6 @@
 <h3>Create a new event:</h3>
-<%#binding.pry%>
-<% if flash.has?(:message) %>
+
+<% if flash[:message] %>
   <%= flash[:message] %>
 <% end %>
 <form class="" action="/new_event" method="post">

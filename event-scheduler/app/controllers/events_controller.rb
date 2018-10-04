@@ -1,25 +1,28 @@
+require "rack-flash"
+
 class EventsController < ApplicationController
+use Rack::Flash
 
   def index
-    @events = Event.all 
-  end 
+    @events = Event.all
+  end
 
   def new
-    @event = Event.new 
-  end 
-
-  def create 
+    @event = Event.new
   end
 
-  def show 
-    @event = Event.find(params[:id])
-  end 
+  def create
+  end
 
-  def edit 
+  def show
     @event = Event.find(params[:id])
   end
 
-  def update 
-  end 
+  def edit
+    @event = Event.find(params[:id])
+  end
+
+  def update
+  end
 
 end
