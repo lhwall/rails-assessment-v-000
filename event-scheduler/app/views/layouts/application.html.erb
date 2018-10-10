@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>EventScheduler</title>
+  <title>Event Scheduler</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 
-  <body><%if logged_in?%><a href="/log_out">Log Out</a> <a href="/">Index</a> <a href="/user_index">Your Page</a> <a href="/new_event">Create a New Event</a><%end%><%if !logged_in%>
+  <body><%if logged_in?%><a href="/log_out">Log Out</a> <a href="/">Index</a> <a href="/user_index">Your Page</a> <a href="/new_event">Create a New Event</a><%end%><%if !logged_in?%>
   To create or modify an event, please <a href="/log_in">log in</a> or <a href="/sign_up">sign up</a>.
   <%end%>
     <div class="wrapper">
+<br>
 <%= yield %>
 
 </body>
