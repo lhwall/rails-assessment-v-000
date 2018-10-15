@@ -18,7 +18,8 @@ class UsersController < ApplicationController
           else
             @user = User.create(:username => params[:username], :password => params[:password])
             session[:user_id] = @user.id
-            erb :"users/user_index"
+            redirect_to user_path(@user)
+
         end
     end
 
