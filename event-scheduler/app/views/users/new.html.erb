@@ -1,0 +1,9 @@
+<h3>Welcome to the Event Scheduler!  Please sign up below.</h3>
+
+<% if flash[:message] %>
+  <%= flash[:message] %>
+<% end %>
+
+<%= form_tag users_path do %>
+<%= render "userform" %>
+<%end%>
