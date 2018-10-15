@@ -16,10 +16,10 @@ class UsersController < ApplicationController
             flash[:message] = "That user name is taken"
             redirect to "/sign_up"
           else
-            @user = User.create(:username => params[:username], :password => params[:password])
+            @user = User.new(user_params(:username, :password_digest))
             session[:user_id] = @user.id
+            byebug
             redirect_to user_path(@user)
-
         end
     end
 
