@@ -19,8 +19,8 @@ class UsersController < ApplicationController
             redirect to "/sign_up"
           else
             @user = User.new(user_params(:username, :password_digest))
+            @user.save
             session[:user_id] = @user.id
-            byebug
             redirect_to user_path(@user)
         end
     end
