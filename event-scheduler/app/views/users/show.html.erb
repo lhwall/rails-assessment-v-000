@@ -1,0 +1,9 @@
+<p>This user has created <%=@user.events.length %> events.</p>
+
+<%@user.events.each do |event|%>
+<hr>
+<p><strong><%= link_to event.name, event_path(event)%></a></strong></p>
+<p>Location: <%=event.location%></p>
+<p><%=event.date%>,<%= event.formatted_time%></p>
+<%end%>
+</br>
