@@ -3,3 +3,4 @@
 <p><%=@event.date%>,<%= @event.time%></p>
 <p><%=@event.description%></p><%#binding.pry%>
 <%if @event.category_id %><p><strong><%=@event.category.name  %></strong></p><%end%>
+Created by <%=link_to @event.user.username, user_path(@event.user)%>

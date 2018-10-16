@@ -13,6 +13,7 @@ use Rack::Flash
 
   def create
     @event = Event.new(event_params(:name, :location, :date, :time, :description))
+    @event.user = current_user
     @event.save
     redirect_to event_path(@event)
   end

@@ -6,4 +6,8 @@ class Event < ActiveRecord::Base
     #shows user all events that have not yet occured in chronological order
   end
 
+  def formatted_time
+    self.time
+  end
+
 end

@@ -1,4 +1,5 @@
 <%= form_for(@event) do |f| %>
+<strong><p>Event Name: <%=f.text_field :name %></p></strong>
 <p>Location: <%=f.text_field :location %></p>
 <p>Date: <%=f.date_select :date %></p>
 <p>Time: <%=f.time_select :time%></p>
