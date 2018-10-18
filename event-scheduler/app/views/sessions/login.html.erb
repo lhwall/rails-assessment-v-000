@@ -1,9 +1,9 @@
 <% if flash[:message] %>
   <%= flash[:message] %>
 <% end %>
-
+<h3>Log In</h3>
 <%= form_for(@user) do |f| %>
 <p>Username: <%=f.text_field :username %></p>
-<p>Password: <%=f.password :password_digest %></p>
-  <%=f.submit%>
+<p>Password: <%=f.password_field :password_digest %></p>
+  <%=f.submit "Log In"%>
 <%end%>
