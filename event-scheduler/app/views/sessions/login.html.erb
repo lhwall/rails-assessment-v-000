@@ -1,0 +1,9 @@
+<% if flash[:message] %>
+  <%= flash[:message] %>
+<% end %>
+
+<%= form_for(@user) do |f| %>
+<p>Username: <%=f.text_field :username %></p>
+<p>Password: <%=f.password :password_digest %></p>
+  <%=f.submit%>
+<%end%>
