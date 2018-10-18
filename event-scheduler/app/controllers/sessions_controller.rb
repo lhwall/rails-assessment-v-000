@@ -5,6 +5,10 @@ def index
 end
 
 def login
+  @user = User.new
+end
+
+def login_user
 end
 
 def logout

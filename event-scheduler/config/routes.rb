@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   root "sessions#index"
 
   post "logout" => "sessions#logout"
-  post "login" => "sessions#login"
+  get "login" => "sessions#login"
+  post "login" => "sessions#login_user"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
