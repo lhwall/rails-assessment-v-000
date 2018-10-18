@@ -9,6 +9,7 @@ end
 
 def logout
   session[:user_id].clear
+  redirect_to "/index"
 end
 
 end

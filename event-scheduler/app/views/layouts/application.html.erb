@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 
-  <body><%if logged_in?%><a href="/log_out">Log Out</a> <a href="/">Index</a> <%= link_to "Create a New Event", new_event_path %><%end%><%if !logged_in?%>
+  <body><%if logged_in?%> <%= link_to "Log Out", logout_path%> <%= link_to "Index", root_path%> <%= link_to "Create a New Event", new_event_path %><%end%><%if !logged_in?%>
   To create or modify an event, please <a href="/log_in">log in</a> or <%= link_to "sign up", new_user_path %>.
   <%end%>
     <div class="wrapper">
