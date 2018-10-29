@@ -2,10 +2,11 @@
   <%= flash[:message] %>
 <% end %>
 <h3>Log In</h3>
-<%= form_for(@user) do |f| %>
-<p>Username: <%=f.text_field :username %></p>
-<p>Password: <%=f.password_field :password_digest %></p>
-  <%=f.submit "Log In"%>
+
+<%=form_tag({controller: "sessions", action: "login_user"}, method: "post") do %>
+<p>Username: <%= text_field_tag (:username)%></p>
+<p>Password: <%= password_field_tag (:password_digest) %></p>
+<%= submit_tag("Log In") %>
 <%end%>
 
 <small>If you do not have a login, please <%=link_to "sign up", new_user_path %>.</small>
