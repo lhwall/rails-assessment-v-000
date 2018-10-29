@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   resources :events
   resources :users
 
-  root "sessions#index"
+  root "events#index"
 
-  post "logout" => "sessions#logout"
+  delete "logout" => "sessions#logout"
   get "login" => "sessions#login"
   post "login" => "sessions#login_user"
   # The priority is based upon order of creation: first created -> highest priority.

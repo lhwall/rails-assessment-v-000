@@ -1,5 +1,9 @@
+<h3><%= @user.username %> </h3>
+<% if @user.events.length == 1 %>
+<p>This user has created 1 event.</p>
+<% else %>
 <p>This user has created <%=@user.events.length %> events.</p>
-
+<% end %>
 <%@user.events.each do |event|%>
 <hr>
 <p><strong><%= link_to event.name, event_path(event)%></a></strong></p>

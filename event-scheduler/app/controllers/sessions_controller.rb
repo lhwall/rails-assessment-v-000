@@ -21,8 +21,8 @@ end
 end
 
 def logout
-  session[:user_id].clear
-  redirect_to "/index"
+  session.delete(:user_id)
+  redirect_to events_path
 end
 
 end
