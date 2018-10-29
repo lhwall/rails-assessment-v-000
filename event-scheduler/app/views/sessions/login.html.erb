@@ -7,3 +7,5 @@
 <p>Password: <%=f.password_field :password_digest %></p>
   <%=f.submit "Log In"%>
 <%end%>
+
+<small>If you do not have a login, please <%=link_to "sign up", new_user_path %>.</small>
