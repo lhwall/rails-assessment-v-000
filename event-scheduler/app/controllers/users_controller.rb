@@ -11,12 +11,13 @@ class UsersController < ApplicationController
     end
 
     def create
-      if params[:username] == "" || params[:password] == ""
+      #byebug
+      if params[:user][:username] == "" || params[:user][:password_digest] == ""
             flash[:message] = "Please enter a username and password"
-            redirect to "/sign_up"
-          elsif !!User.find_by(username: params[:username])
+            redirect_to new_user_path
+          elsif !!User.find_by(username: params[:user][:username])
             flash[:message] = "That user name is taken"
-            redirect to "/sign_up"
+            redirect_to new_user_path
           else
             @user = User.new(user_params(:username, :password_digest))
             @user.save
