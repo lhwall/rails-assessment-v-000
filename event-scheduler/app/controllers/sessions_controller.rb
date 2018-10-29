@@ -10,13 +10,16 @@ def login
 end
 
 def login_user
-  #byebug
   @user = User.find_by(:username => params[:username])
- if @user && @user.authenticate(params[:password])
+  #byebug
+  if @user == nil
+    flash[:message] = "That username does not exist"
+    redirect_to login_path
+ elsif @user.authenticate(params[:password])
    session[:user_id] = @user.id
  redirect_to user_path(@user)
  else
-   flash[:message] = "That is not the correct password or that username does not exist"
+   flash[:message] = "That is not the correct password"
    redirect_to login_path
 end
 end
