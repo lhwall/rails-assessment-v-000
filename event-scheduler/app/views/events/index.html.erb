@@ -1,4 +1,5 @@
 <h3>All Events</h3>
+<small>To view upcoming events in chronological order, please <%=link_to "click here", chronological_path%>.</small>
 <% @events.each do |event| %>
 <p><strong><%=link_to event.name, event_path(event)%></strong></a></p>
 <p>Location: <%=event.location%></p>

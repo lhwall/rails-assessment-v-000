@@ -35,6 +35,9 @@ end
 
   end
 
+  def chronological
+  end
+
   def update
     @event = Event.find(params[:id])
     #byebug

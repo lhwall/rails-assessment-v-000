@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   delete "logout" => "sessions#logout"
   get "login" => "sessions#login"
   post "login" => "sessions#login_user"
+  get "chronological" => "events#chronological"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
