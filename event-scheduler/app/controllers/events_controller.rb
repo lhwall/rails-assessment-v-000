@@ -29,7 +29,8 @@ use Rack::Flash
 
   def update
     @event = Event.find(params[:id])
-    if current_user.id == @event.user
+    #byebug
+    if current_user == @event.user
     @event.update(event_params(:name, :location, :date, :time, :description))
       flash[:message] = "Your event has been updated"
     redirect_to event_path(@event)

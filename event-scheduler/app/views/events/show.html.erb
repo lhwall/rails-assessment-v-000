@@ -7,3 +7,6 @@
 <p><%=@event.description%></p><%#binding.pry%>
 <%if @event.category_id %><p><strong><%=@event.category.name  %></strong></p><%end%>
 Created by <%=link_to @event.user.username, user_path(@event.user)%>
+<%if @event.user == current_user%>
+<p><%=link_to "Edit this event", edit_event_path(@event)%><p>
+<%end%>
