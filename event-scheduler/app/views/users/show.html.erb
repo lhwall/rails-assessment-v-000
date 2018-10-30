@@ -2,8 +2,15 @@
 <% if @user.events.length == 1 %>
 <p>This user has created 1 event.</p>
 <% else %>
-<p>This user has created <%=@user.events.length %> events.</p>
+<p><%=@user.username%> has created <%=@user.events.length %> events.</p>
+<%end%>
+<% if @user.categories.length >= 1 %>
+<p><%=@user.username%> has created events in the following categories:</p>
+
+<% @user.categories.each do |category| %>
+<p><%=link_to category.name, category_path(category)%></p>
 <% end %>
+<%end %>
 <%@user.events.each do |event|%>
 <hr>
 <p><strong><%= link_to event.name, event_path(event)%></a></strong></p>
