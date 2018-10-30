@@ -1,7 +1,7 @@
 <form class="" action="/events/<%=@event.id%>/update" method="post">
-  <% if flash.has?(:message) %>
-    <%= flash[:message] %>
-    <% end %>
+<% if flash[:message] %>
+  <%= flash[:message] %>
+<% end %>
 <%= form_tag event_path(@event), method: "put" do %>
 <%= render "eventform" %>
 <%end%>

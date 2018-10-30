@@ -1,3 +1,6 @@
+<% if flash[:message] %>
+  <%= flash[:message] %>
+<% end %>
 <h3><%=@event.name%></h3>
 <p>Location: <%=@event.location%></p>
 <p><%=@event.date%>,<%= @event.time%></p>
