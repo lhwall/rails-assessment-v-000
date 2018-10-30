@@ -19,6 +19,7 @@ use Rack::Flash
 
   else
     @event = Event.new(event_params(:name, :location, :date, :time, :description))
+    @event.category = Category.find_or_create_by(name: params[:event][:category])
     @event.user = current_user
     @event.save
     redirect_to event_path(@event)
@@ -43,6 +44,7 @@ end
         redirect_to edit_event_path(@event)
   else
     @event.update(event_params(:name, :location, :date, :time, :description))
+    @event.category = Category.find_or_create_by(name: params[:event][:category])
       flash[:message] = "Your event has been updated"
     redirect_to event_path(@event)
     end
