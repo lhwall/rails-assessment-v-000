@@ -5,7 +5,7 @@
 <p>Location: <%=@event.location%></p>
 <p><%=@event.date%>,<%= @event.time%></p>
 <p><%=@event.description%></p>
-<p><%=@event.category.name%></p>
+<p><%=link_to @event.category.name, category_path(@event.category)%></p>
 Created by <%=link_to @event.user.username, user_path(@event.user)%>
 <%if @event.user == current_user%>
 <p><%=link_to "Edit this event", edit_event_path(@event)%><p>
