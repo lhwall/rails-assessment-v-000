@@ -4,10 +4,15 @@ class Event < ActiveRecord::Base
 
   def self.upcoming_events
     #shows user all events that have not yet occured in chronological order
+    upcoming_events = []
+    Events.all do |event|
+      if Time.now < event.time
+        upcoming_events << event
+      end
+    end
+    upcoming_events.sort_by! {|a,b| a.date <=> b.date}
+    upcoming_events
   end
 
-  def formatted_time
-    self.time
-  end
 
 end
