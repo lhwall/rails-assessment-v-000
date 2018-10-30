@@ -4,7 +4,8 @@ class Event < ActiveRecord::Base
 
   def self.upcoming_events
     #shows user all events that have not yet occured in chronological order
-  Event.where(:date > Time.now).order(:date)
+    #byebug
+  Event.order(:date).where("date >= ?", Date.today)
   end
 
 

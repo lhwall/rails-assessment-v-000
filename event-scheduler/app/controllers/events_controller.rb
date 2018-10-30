@@ -36,6 +36,7 @@ end
   end
 
   def chronological
+    @events = Event.upcoming_events
   end
 
   def update

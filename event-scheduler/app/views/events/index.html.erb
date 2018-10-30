@@ -4,7 +4,7 @@
 <p><strong><%=link_to event.name, event_path(event)%></strong></a></p>
 <p>Location: <%=event.location%></p>
 <p><%=event.date%>,<%= event.time%></p>
-<%if event.category_id %><p><strong><%=event.category.name  %></strong></p><%end%>
+<%if event.category%><p><strong><%=link_to event.category.name, category_path(event.category)%></strong></p><%end%>
 <p>Created by <%=event.user.username%></p>
 <hr>
 <%end%>
