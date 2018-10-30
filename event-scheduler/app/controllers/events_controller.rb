@@ -12,11 +12,18 @@ use Rack::Flash
   end
 
   def create
+  #  byebug
+    if params[:event][:name] == "" || params[:event][:location] == "" || params[:event][:date] == ""|| params[:event][:time] == ""
+      flash[:message] = "Please include a name, location, date, and time for your event"
+      redirect_to new_event_path
+
+  else
     @event = Event.new(event_params(:name, :location, :date, :time, :description))
     @event.user = current_user
     @event.save
     redirect_to event_path(@event)
   end
+end
 
   def show
     @event = Event.find(params[:id])
