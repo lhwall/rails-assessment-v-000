@@ -19,7 +19,7 @@ class UsersController < ApplicationController
             flash[:message] = "That user name is taken"
             redirect_to new_user_path
           else
-            @user = User.new(user_params(:username, :password_digest))
+            @user = User.new(user_params)
             @user.save
             session[:user_id] = @user.id
             redirect_to user_path(@user)
@@ -40,8 +40,8 @@ class UsersController < ApplicationController
 
 private
 
-def user_params(*args)
-  params.require(:user).permit(*args)
+def user_params
+  params.require(:user).permit(:username, :password, :password_confirmation)
 end
 
 end
