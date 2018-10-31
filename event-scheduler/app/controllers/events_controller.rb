@@ -15,8 +15,9 @@ use Rack::Flash
   def create
   #  byebug
     @event = Event.new(event_params(:name, :location, :date, :time, :description))
-    if @event.valid? #params[:event][:name] == "" || params[:event][:location] == "" || params[:event][:date] == ""|| params[:event][:time] == ""
-      @event.category = Category.find_or_create_by(name: params[:event][:category])
+    @event.category = Category.find_or_create_by(name: params[:event][:category])
+    #byebug
+    if @event.valid?
       @event.user = current_user
       @event.save
       redirect_to event_path(@event)

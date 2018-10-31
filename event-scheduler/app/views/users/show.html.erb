@@ -1,20 +1,17 @@
 <h3><%= @user.username %> </h3>
-<% if @user.events.length == 1 %>
-<p>This user has created 1 event.</p>
-<% else %>
-<p><%=@user.username%> has created <%=@user.events.length %> events.</p>
+<%if @user.events.length < 1 %>
+<p><%=@user.username%> has not created any events.</p>
+<%else%>
+<p><%=@user.username%> has created <%=pluralize(@user.events.count, "event")%> in the following <%=pluralize(@user.categories.count, "category")%>:</p>
 <%end%>
-<% if @user.categories.length >= 1 %>
-<p><%=@user.username%> has created events in the following categories:</p>
-
 <% @user.categories.each do |category| %>
 <p><%=link_to category.name, category_path(category)%></p>
 <% end %>
-<%end %>
+
 <%@user.events.each do |event|%>
 <hr>
 <p><strong><%= link_to event.name, event_path(event)%></a></strong></p>
 <p>Location: <%=event.location%></p>
-<p><%=event.date%>,<%= event.formatted_time%></p>
+<p><%=event.date%>,<%= event.time%></p>
 <%end%>
 </br>

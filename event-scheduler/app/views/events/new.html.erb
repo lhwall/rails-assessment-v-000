@@ -1,9 +1,9 @@
 <h3>Create a new event:</h3>
 
-<% if @errors.messages %>
+<% if @event.errors.messages.count > 0 %>
 <div id="error_explanation">
 <p>
-  <%= pluralize(@article.errors.count, "error") %>
+  <%= pluralize(@event.errors.count, "error") %>
   prohibited this article from being saved:</p>
 <ul>
 <% @event.errors.full_messages.each do |msg| %>

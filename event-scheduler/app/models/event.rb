@@ -4,8 +4,7 @@ class Event < ActiveRecord::Base
   validates :name, presence: true
   validates :location, presence: true
   validates :category, presence: true
-  validates :date, presence: true
-  validates :time, presence: true
+
 
   def self.upcoming_events
     #shows user all events that have not yet occured in chronological order
