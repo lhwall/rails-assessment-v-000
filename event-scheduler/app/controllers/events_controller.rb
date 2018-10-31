@@ -9,20 +9,20 @@ use Rack::Flash
 
   def new
     @event = Event.new
+    @event.category = Category.find_or_create_by(name: "")
   end
 
   def create
   #  byebug
-    if params[:event][:name] == "" || params[:event][:location] == "" || params[:event][:date] == ""|| params[:event][:time] == ""
-      flash[:message] = "Please include a name, location, date, and time for your event"
-      redirect_to new_event_path
-
-  else
     @event = Event.new(event_params(:name, :location, :date, :time, :description))
-    @event.category = Category.find_or_create_by(name: params[:event][:category])
-    @event.user = current_user
-    @event.save
-    redirect_to event_path(@event)
+    if @event.valid? #params[:event][:name] == "" || params[:event][:location] == "" || params[:event][:date] == ""|| params[:event][:time] == ""
+      @event.category = Category.find_or_create_by(name: params[:event][:category])
+      @event.user = current_user
+      @event.save
+      redirect_to event_path(@event)
+  else
+  @errors = @event.errors
+    redirect_to new_event_path
   end
 end
 
