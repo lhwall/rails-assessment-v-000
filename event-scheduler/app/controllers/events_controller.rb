@@ -4,7 +4,8 @@ class EventsController < ApplicationController
 use Rack::Flash
 
   def index
-    if params [:user_id]
+    if params[:user_id]
+      #byebug
       @events = User.find(params[:user_id]).events
     else
     @events = Event.all

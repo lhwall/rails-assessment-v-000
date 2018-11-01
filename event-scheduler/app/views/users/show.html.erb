@@ -2,12 +2,13 @@
 <%if @user.events.length < 1 %>
 <p><%=@user.username%> has not created any events.</p>
 <%else%>
+<%=link_to "View all of this user's events", user_events_path([@user.id])%>
+
 <p><%=@user.username%> has created <%=pluralize(@user.events.count, "event")%> in the following <%=pluralize(@user.categories.count, "category")%>:</p>
 <%end%>
 <% @user.categories.each do |category| %>
 <p><%=link_to category.name, category_path(category)%></p>
 <% end %>
-
 <%@user.events.each do |event|%>
 <hr>
 <p><strong><%= link_to event.name, event_path(event)%></a></strong></p>
