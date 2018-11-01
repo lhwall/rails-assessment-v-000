@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :categories, only [:show, :index]
   resources :events, only [:index, :show, :new, :create, :edit, :update]
-  resources :users, only [:index, :show, :new, :create]
+  resources :users, only [:index, :show, :new, :create] do
+    resources :events, only [:show, :index]
+  end
 
   root "events#index"
 
