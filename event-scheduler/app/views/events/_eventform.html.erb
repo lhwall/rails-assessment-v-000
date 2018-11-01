@@ -1,7 +1,7 @@
 <%= form_for(@event) do |f| %>
 
 <% if @event.errors.messages.count > 0 %>
-<div id="error_explanation">
+<div id="fields_with errors">
 <p>
   <%= pluralize(@event.errors.count, "error") %>
   prohibited this article from being saved:</p>
