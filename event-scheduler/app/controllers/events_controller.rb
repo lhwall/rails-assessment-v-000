@@ -9,7 +9,6 @@ use Rack::Flash
 
   def new
     @event = Event.new
-    @event.category = Category.find_or_create_by(name: "")
   end
 
   def create
