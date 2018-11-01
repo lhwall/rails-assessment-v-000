@@ -11,19 +11,14 @@ class UsersController < ApplicationController
     end
 
     def create
-      #byebug
-      if params[:user][:username] == "" || params[:user][:password_digest] == ""
-            flash[:message] = "Please enter a username and password"
-            redirect_to new_user_path
-          elsif !!User.find_by(username: params[:user][:username])
-            flash[:message] = "That user name is taken"
-            redirect_to new_user_path
-          else
-            @user = User.new(user_params)
-            @user.save
-            session[:user_id] = @user.id
-            redirect_to user_path(@user)
-        end
+      @user = User.new(user_params)
+    if @user.valid?
+      @user.save
+     redirect_to user_path(@user)
+    else
+    @errors = @user.errors
+      render :new
+    end
     end
 
     def show
