@@ -2,7 +2,7 @@
 <div id="error_explanation">
 <p>
   <%= pluralize(@user.errors.count, "error") %>
-  prohibited this article from being saved:</p>
+  prohibited this user from being saved:</p>
 <ul>
 <% @user.errors.full_messages.each do |msg| %>
   <li><%= msg %></li>
