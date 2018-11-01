@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   resources :categories, only: [:show, :index]
+  do
+    resources :events, only: [:show, :index, :new]
+  end
   resources :events, only: [:index, :show, :new, :create, :edit, :update]
   resources :users, only: [:index, :show, :new, :create] do
     resources :events, only: [:show, :index]

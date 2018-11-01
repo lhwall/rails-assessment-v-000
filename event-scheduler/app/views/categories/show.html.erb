@@ -4,5 +4,6 @@
 <hr>
 <p><strong><%= link_to event.name, event_path(event)%></a></strong></p>
 <p>Location: <%=event.location%></p>
+Created by <%=link_to event.user.username, user_path(event.user)%>
 <%end%>
 </br>

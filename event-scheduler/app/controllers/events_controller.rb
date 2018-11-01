@@ -13,7 +13,7 @@ use Rack::Flash
   end
 
   def new
-    @event = Event.new
+    @event = Event.new(category_id: params[:category_id])
   end
 
   def create
