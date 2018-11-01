@@ -41,16 +41,16 @@ end
 
   def update
     @event = Event.find(params[:id])
-    #byebug
-    if current_user == @event.user
-      if params[:event][:name] == "" || params[:event][:location] == "" || params[:event][:date] == ""|| params[:event][:time] == ""
-        flash[:message] = "Please include a name, location, date, and time for your event"
-        redirect_to edit_event_path(@event)
-  else
     @event.update(event_params(:name, :location, :date, :time, :description))
     @event.category = Category.find_or_create_by(name: params[:event][:category])
-      flash[:message] = "Your event has been updated"
-    redirect_to event_path(@event)
+    #byebug
+    if current_user == @event.user
+      if @event.valid?
+        @event.save
+      redirect_to event_path(@event)
+  else
+    @errors = @event.errors
+    render :edit
     end
   else
     flash[:message] = "You do not have permission to edit this event"

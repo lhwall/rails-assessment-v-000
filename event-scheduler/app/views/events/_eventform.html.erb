@@ -1,4 +1,18 @@
 <%= form_for(@event) do |f| %>
+
+<% if @event.errors.messages.count > 0 %>
+<div id="error_explanation">
+<p>
+  <%= pluralize(@event.errors.count, "error") %>
+  prohibited this article from being saved:</p>
+<ul>
+<% @event.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+<% end %>
+</ul>
+</div>
+<% end %>
+
 <strong><p>Event Name: <%=f.text_field :name %></p></strong>
 <p>Location: <%=f.text_field :location %></p>
 <p>Date: <%=f.date_select :date %></p>
