@@ -3,7 +3,7 @@
 <% end %>
 <h3><%=@event.name%></h3>
 <p>Location: <%=@event.location%></p>
-<p><%=@event.date%>,<%= @event.time%></p>
+<p><%= event_date(@event)%>, <%=event_time(@event)%></p>
 <p><%=@event.description%></p>
 <p><%=link_to @event.category.name, category_path(@event.category)%></p>
 Created by <%=link_to @event.user.username, user_path(@event.user)%>
