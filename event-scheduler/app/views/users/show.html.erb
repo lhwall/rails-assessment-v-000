@@ -13,6 +13,6 @@
 <hr>
 <p><strong><%= link_to event.name, event_path(event)%></a></strong></p>
 <p>Location: <%=event.location%></p>
-<p><%=event.date%>,<%= event.time%></p>
+<p><%= event_date(event)%>, <%=event_time(event)%></p>
 <%end%>
 </br>

@@ -3,9 +3,9 @@
 <% @events.each do |event| %>
 <p><strong><%=link_to event.name, event_path(event)%></strong></a></p>
 <p>Location: <%=event.location%></p>
-<p><%=event.date%>,<%= event.time%></p>
+<p><%= event_date(event)%>, <%=event_time(event)%></p>
 <%if event.category%><p><strong><%=link_to event.category.name, category_path(event.category)%></strong></p><%end%>
-<p>Created by <%=event.user.username%></p>
+<p>Created by <%=link_to event.user.username, user_path(event.user)%></p>
 <hr>
 <%end%>
 </br>
