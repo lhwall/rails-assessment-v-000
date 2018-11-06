@@ -46,10 +46,9 @@ end
 
   def update
     @event = Event.find(params[:id])
+    if current_user == @event.user
     @event.update(event_params(:name, :location, :date, :time, :description))
     @event.category = Category.find_or_create_by(name: params[:event][:category])
-    #byebug
-    if current_user == @event.user
       if @event.valid?
         @event.save
       redirect_to event_path(@event)
