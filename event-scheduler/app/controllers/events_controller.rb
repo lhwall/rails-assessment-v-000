@@ -62,10 +62,11 @@ end
   end
 end
 
-def location_show
+def location_index
+  @locations =Event.all_event_locations
 end
 
-def location_index
+def location_show
 end
 
 private

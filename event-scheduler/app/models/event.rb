@@ -12,5 +12,8 @@ class Event < ActiveRecord::Base
   Event.order(:date).where("date >= ?", Date.today)
   end
 
+  def self.all_event_locations
+    Event.select(:location).uniq
+  end
 
 end
