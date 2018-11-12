@@ -62,6 +62,12 @@ end
   end
 end
 
+def location_show
+end
+
+def location_index
+end
+
 private
 def event_params(*args)
   params.require(:event).permit(*args)
