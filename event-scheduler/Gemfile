@@ -45,6 +45,7 @@ group :development, :test do
   gem "omniauth"
   gem "omniauth-facebook"
   gem "omniauth-github"
+  gem "omniauth-twitter"
   gem "dotenv-rails"
   gem "thin"
 end
