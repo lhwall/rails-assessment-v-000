@@ -15,9 +15,8 @@ Rails.application.routes.draw do
   get "login" => "sessions#login"
   post "login" => "sessions#login_user"
   get "chronological" => "events#chronological"
-  get '/auth/github' => 'sessions#create'
   get '/auth/github/callback' => 'sessions#create'
-  get '/auth/twitter' => 'sessions#create'
+  get '/auth/twitter/callback' => 'sessions#create'
   get "location_show" => "events#location_show"
   get "location_index" => "events#location_index"
   # The priority is based upon order of creation: first created -> highest priority.
